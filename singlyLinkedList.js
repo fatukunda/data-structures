@@ -51,6 +51,18 @@ class LinkedList {
     this.tail = newTail;
     this.tail.next = null;
     this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+      this.head = null;
+    }
     return current;
+  }
+  // Remove the first node in the linked list.
+  shift() {
+    if (!this.head) return undefined;
+    let currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    return currentHead;
   }
 }
